@@ -49,7 +49,14 @@ namespace GNote
                             fs.Write(notecontent, 0, content.Length);
                             if (!noteslist.Items.Contains(title + ".txt"))
                             {
-                                noteslist.Items.Add(title + ".txt");
+                                if (title.Length > 0)
+                                {
+                                    noteslist.Items.Add(title + ".txt");
+                                }
+                                else
+                                    MessageBox.Show("Note title cannot be empty!");
+
+
                             }
                         }
                     }
@@ -67,8 +74,12 @@ namespace GNote
                         fs.Write(notecontent, 0, content.Length);
 
 
-                        noteslist.Items.Add(title +".txt");
-
+                        if (title.Length > 0)
+                        {
+                            noteslist.Items.Add(title + ".txt");
+                        }
+                        else
+                            MessageBox.Show("Note title cannot be empty!");
                     }
                 }
             }
