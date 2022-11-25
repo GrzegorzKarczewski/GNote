@@ -28,17 +28,12 @@ namespace GNote
             string title = tB_title.Text;
             string content = tB_content.Text;
 
-
-
             // Writing a note to a file
 
             string userName = Environment.UserName;
             Directory.CreateDirectory(GNotePath);
             string fileName = GNotePath+ "\\" + title + ".txt";
         
-
-
-
             try
             {
                 if (File.Exists(fileName))
@@ -125,6 +120,26 @@ namespace GNote
                     tB_content.Text = s;
                 }
             }
+        }
+
+        private void button_del_Click(object sender, EventArgs e)
+        {
+            string filefromlist = noteslist.SelectedItem.ToString();
+            File.Delete(GNotePath+ "\\" + filefromlist);
+           
+            if (noteslist.SelectedItems.Count != 0)
+            {
+                while (noteslist.SelectedIndex != -1)
+                {
+                    noteslist.Items.RemoveAt(noteslist.SelectedIndex);
+                    if (noteslist.Items.Count == 0)
+                    {
+                        tB_title.Clear();
+                        tB_content.Clear();
+                    }
+                }
+            }
+
         }
     }
 }
