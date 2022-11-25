@@ -34,7 +34,6 @@
             this.tB_content = new System.Windows.Forms.TextBox();
             this.l_saved = new System.Windows.Forms.Label();
             this.button_save = new System.Windows.Forms.Button();
-            this.button_read = new System.Windows.Forms.Button();
             this.button_del = new System.Windows.Forms.Button();
             this.button_new = new System.Windows.Forms.Button();
             this.noteslist = new System.Windows.Forms.ListBox();
@@ -76,7 +75,7 @@
             // l_saved
             // 
             this.l_saved.AutoSize = true;
-            this.l_saved.Location = new System.Drawing.Point(506, 104);
+            this.l_saved.Location = new System.Drawing.Point(506, 116);
             this.l_saved.Name = "l_saved";
             this.l_saved.Size = new System.Drawing.Size(75, 15);
             this.l_saved.TabIndex = 5;
@@ -91,16 +90,6 @@
             this.button_save.Text = "Save";
             this.button_save.UseVisualStyleBackColor = true;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
-            // 
-            // button_read
-            // 
-            this.button_read.Location = new System.Drawing.Point(506, 358);
-            this.button_read.Name = "button_read";
-            this.button_read.Size = new System.Drawing.Size(75, 23);
-            this.button_read.TabIndex = 7;
-            this.button_read.Text = "Read";
-            this.button_read.UseVisualStyleBackColor = true;
-            this.button_read.Click += new System.EventHandler(this.button_read_Click);
             // 
             // button_del
             // 
@@ -140,7 +129,6 @@
             this.Controls.Add(this.noteslist);
             this.Controls.Add(this.button_new);
             this.Controls.Add(this.button_del);
-            this.Controls.Add(this.button_read);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.l_saved);
             this.Controls.Add(this.tB_content);
@@ -148,7 +136,7 @@
             this.Controls.Add(this.l_notecontent);
             this.Controls.Add(this.l_title);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GNote";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,7 +150,6 @@
         private TextBox tB_content;
         private Label l_saved;
         private Button button_save;
-        private Button button_read;
         private Button button_del;
         private Button button_new;
         private ListBox noteslist;

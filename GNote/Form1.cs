@@ -87,24 +87,7 @@ namespace GNote
         }
 
 
-        private void button_read_Click(object sender, EventArgs e)
-        {
-
-
-            string filefromlist = noteslist.SelectedItem.ToString();
-            tB_title.Text = filefromlist.Remove(filefromlist.Length-4);
-            using (StreamReader sr = File.OpenText( GNotePath + "\\" + filefromlist))
-            {
-                string s = "";
-                while ((s = sr.ReadLine()) != null)
-                {
-                    tB_content.Text = s;
-                }
-
-            }
-        }
-
-
+      
         private void noteslist_SelectedIndexChanged(object sender, EventArgs e)
         {
          
