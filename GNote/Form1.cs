@@ -32,11 +32,11 @@ namespace GNote
 
             string userName = Environment.UserName;
             Directory.CreateDirectory(GNotePath);
-            string fileName = GNotePath+ "\\" + title + ".txt";
-        
+            string fileName = GNotePath + "\\" + title + ".txt";
+
             try
             {
-                if (File.Exists(fileName))
+                if (File.Exists(fileName) && title.Length > 0)
                 {
                     DialogResult dialogResult = MessageBox.Show("Using the same name will result in deletion of the old note!",
                         "Note exist!", MessageBoxButtons.YesNo);
@@ -68,20 +68,20 @@ namespace GNote
                 }
                 else
                 {
-                    using (FileStream fs = File.Create(fileName))
+                    if (title.Length > 0)
                     {
-                        Byte[] notecontent = new UTF8Encoding(true).GetBytes(content);
-                        fs.Write(notecontent, 0, content.Length);
-
-
-                        if (title.Length > 0)
+                        using (FileStream fs = File.Create(fileName))
                         {
+
+                            Byte[] notecontent = new UTF8Encoding(true).GetBytes(content);
+                            fs.Write(notecontent, 0, content.Length);
                             noteslist.Items.Add(title + ".txt");
                         }
-                        else
-                            MessageBox.Show("Note title cannot be empty!");
                     }
+                    else
+                        MessageBox.Show("Note title cannot be empty!");
                 }
+            
             }
             catch (Exception Ex)
             {
