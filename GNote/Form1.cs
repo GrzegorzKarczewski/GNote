@@ -11,7 +11,7 @@ namespace GNote
 
     public partial class Form1 : Form
     {
-
+       
         public Form1()
         {
             InitializeComponent();
@@ -34,8 +34,13 @@ namespace GNote
             // Writing a note to a file
 
             string userName = Environment.UserName;
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\GNote";
+            MessageBox.Show(path);
+            Directory.CreateDirectory(path);
+            string fileName = path + "\\" + title + ".txt";
+            MessageBox.Show(fileName);
 
-            string fileName = @"C:/Users/" + userName+ "/" + title + ".txt";
+
 
             try
             {
