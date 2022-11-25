@@ -37,8 +37,7 @@
             this.button_read = new System.Windows.Forms.Button();
             this.button_del = new System.Windows.Forms.Button();
             this.button_new = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.noteslist = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // l_title
@@ -77,7 +76,7 @@
             // l_saved
             // 
             this.l_saved.AutoSize = true;
-            this.l_saved.Location = new System.Drawing.Point(574, 116);
+            this.l_saved.Location = new System.Drawing.Point(506, 104);
             this.l_saved.Name = "l_saved";
             this.l_saved.Size = new System.Drawing.Size(75, 15);
             this.l_saved.TabIndex = 5;
@@ -95,16 +94,17 @@
             // 
             // button_read
             // 
-            this.button_read.Location = new System.Drawing.Point(574, 358);
+            this.button_read.Location = new System.Drawing.Point(506, 358);
             this.button_read.Name = "button_read";
             this.button_read.Size = new System.Drawing.Size(75, 23);
             this.button_read.TabIndex = 7;
             this.button_read.Text = "Read";
             this.button_read.UseVisualStyleBackColor = true;
+            this.button_read.Click += new System.EventHandler(this.button_read_Click);
             // 
             // button_del
             // 
-            this.button_del.Location = new System.Drawing.Point(655, 358);
+            this.button_del.Location = new System.Drawing.Point(605, 358);
             this.button_del.Name = "button_del";
             this.button_del.Size = new System.Drawing.Size(75, 23);
             this.button_del.TabIndex = 8;
@@ -121,22 +121,21 @@
             this.button_new.UseVisualStyleBackColor = true;
             this.button_new.Click += new System.EventHandler(this.button_new_Click);
             // 
-            // dataGridView1
+            // noteslist
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(535, 143);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(195, 198);
-            this.dataGridView1.TabIndex = 10;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.noteslist.FormattingEnabled = true;
+            this.noteslist.ItemHeight = 15;
+            this.noteslist.Location = new System.Drawing.Point(506, 143);
+            this.noteslist.Name = "noteslist";
+            this.noteslist.Size = new System.Drawing.Size(174, 199);
+            this.noteslist.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.noteslist);
             this.Controls.Add(this.button_new);
             this.Controls.Add(this.button_del);
             this.Controls.Add(this.button_read);
@@ -148,7 +147,6 @@
             this.Controls.Add(this.l_title);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,6 +163,6 @@
         private Button button_read;
         private Button button_del;
         private Button button_new;
-        private DataGridView dataGridView1;
+        private ListBox noteslist;
     }
 }
