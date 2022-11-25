@@ -73,20 +73,12 @@ namespace GNote
                         noteslist.Items.Add(title);
 
                     }
-
-                    // TODO:
-                    // Add note on the list
-
                 }
             }
             catch (Exception Ex)
             {
                 Console.WriteLine(Ex.ToString());
             }
-
-
-
-
 
         }
 
