@@ -33,11 +33,9 @@ namespace GNote
             // Writing a note to a file
 
             string userName = Environment.UserName;
-            MessageBox.Show(GNotePath);
             Directory.CreateDirectory(GNotePath);
             string fileName = GNotePath+ "\\" + title + ".txt";
-           
-            MessageBox.Show(fileName);
+        
 
 
 
@@ -45,15 +43,19 @@ namespace GNote
             {
                 if (File.Exists(fileName))
                 {
-                    DialogResult dialogResult = MessageBox.Show("Note exist!",
-                        "Using the same name will result in deletion of the old note?", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Using the same name will result in deletion of the old note!",
+                        "Note exist!", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        File.Delete(fileName);
+                        //File.Delete(fileName);
                         using (FileStream fs = File.Create(fileName))
                         {
                             Byte[] notecontent = new UTF8Encoding(true).GetBytes(content);
                             fs.Write(notecontent, 0, content.Length);
+                            if (!noteslist.Items.Contains(title + ".txt"))
+                            {
+                                noteslist.Items.Add(title + ".txt");
+                            }
                         }
                     }
                     if (dialogResult == DialogResult.No)
@@ -70,7 +72,7 @@ namespace GNote
                         fs.Write(notecontent, 0, content.Length);
 
 
-                        noteslist.Items.Add(title);
+                        noteslist.Items.Add(title +".txt");
 
                     }
                 }
@@ -95,6 +97,7 @@ namespace GNote
 
 
             string filefromlist = noteslist.SelectedItem.ToString();
+            tB_title.Text = filefromlist.Remove(filefromlist.Length-4);
             using (StreamReader sr = File.OpenText( GNotePath + "\\" + filefromlist))
             {
                 string s = "";
@@ -103,6 +106,24 @@ namespace GNote
                     tB_content.Text = s;
                 }
 
+            }
+        }
+
+
+        private void noteslist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
+
+            if (noteslist.SelectedItem != null)      
+            {
+                string filefromlist = noteslist.SelectedItem.ToString();
+                tB_title.Text = filefromlist.Remove(filefromlist.Length - 4);
+                using StreamReader sr = File.OpenText(GNotePath + "\\" + noteslist.SelectedItem.ToString());
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    tB_content.Text = s;
+                }
             }
         }
     }

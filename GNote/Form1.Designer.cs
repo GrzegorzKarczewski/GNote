@@ -129,6 +129,7 @@
             this.noteslist.Name = "noteslist";
             this.noteslist.Size = new System.Drawing.Size(174, 199);
             this.noteslist.TabIndex = 10;
+            this.noteslist.SelectedIndexChanged += new System.EventHandler(this.noteslist_SelectedIndexChanged);
             // 
             // Form1
             // 
